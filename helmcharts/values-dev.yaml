@@ -1,40 +1,23 @@
-replicaCount: 1
+deployment:
+  image: mysql
+  tag: latest
+  name: mysql
+  replica: 2
 
-image:
-  repository: nginx
-  pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+selector: mysql-db
 
-imagePullSecrets: []
-nameOverride: ""
-fullnameOverride: ""
+replicas: 1
 
-serviceAccount:
-  # Specifies whether a service account should be created
-  create: true
-  # Automatically mount a ServiceAccount's API credentials?
-  automount: true
-  # Annotations to add to the service account
-  annotations: {}
-  # The name of the service account to use.
-  # If not set and create is true, a name is generated using the fullname template
-  name: ""
+container:
+  mysql:
+    portNumber: 3306
 
-podAnnotations: {}
-podLabels: {}
+secret: mysql-secret
 
-podSecurityContext: {}
-  # fsGroup: 2000
+config: mysql-config
 
-securityContext: {}
-  # capabilities:
-  #   drop:
-  #   - ALL
-  # readOnlyRootFilesystem: true
-  # runAsNonRoot: true
-  # runAsUser: 1000
+servicePort: 3306
+ServiceName: mysql-svc
 
-service:
-  type: ClusterIP
-  port: 80
+
+# ingress: helm-ingress
