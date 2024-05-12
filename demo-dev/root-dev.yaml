@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: https://github.com/Damola12345/Technical-task.git
     targetRevision: HEAD
-    path: helmcharts/templates
+    path: helmcharts
     helm:
       valueFiles:
       - values-dev.yaml
