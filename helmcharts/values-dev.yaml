@@ -1,23 +1,22 @@
 deployment:
-  image: mysql
+  image: mongo
   tag: latest
-  name: mysql
-  replica: 2
-
-selector: mysql-db
-
-replicas: 1
-
+  name: mongo-database
+  replica: 1
+selector:
+  mongo:
+    name: mongodb
 container:
-  mysql:
-    portNumber: 3306
-
-secret: mysql-secret
-
-config: mysql-config
-
-servicePort: 3306
-ServiceName: mysql-svc
-
-
-# ingress: helm-ingress
+  mongo:
+    portNumber: 27017
+secret:
+  mongo:
+    name: mongo-secret
+config:
+  mongo:
+    name: mongoconfig
+service:
+  mongo:
+    name: mongoservice
+    port: 27017
+    targetPort: 27017
