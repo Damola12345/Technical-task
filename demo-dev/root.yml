@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: https://github.com/Damola12345/Technical-task.git
     targetRevision: HEAD
-    path: demo-dev
+    path: demo-dev/applications
   destination: 
     server: https://kubernetes.default.svc
     namespace: sre
