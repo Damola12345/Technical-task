@@ -2,7 +2,7 @@ deployment:
   image: mongo
   tag: latest
   name: mongo-database
-  replica: 1
+  replica: 2
 selector:
   mongo:
     name: mongodb
