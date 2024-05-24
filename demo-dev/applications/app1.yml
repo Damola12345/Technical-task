@@ -6,7 +6,7 @@ metadata:
     name: events-manager-deploy
     app: events-manager-app
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       name: events-manager-pod
